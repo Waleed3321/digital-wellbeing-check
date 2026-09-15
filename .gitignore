@@ -1,3 +1,15 @@
-%USERPROFILE%
-__pycache__
-%USERP~1
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Ignore these folders
+%USERPROFILE%/
+%USERP~1/
