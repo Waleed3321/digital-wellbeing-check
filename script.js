@@ -1,4 +1,4 @@
-const API_URL = "https://digital-wellbeing-check-1.onrender.com/predict";
+const API_URL = "https://digital-wellbeing-check-1.onrender.com";
 
 // =============================================
 // 3D FLOATING PARTICLES (Canvas background)
