@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000/predict' || "https://digital-wellbeing-check.onrender.com";
+const API_URL = "https://digital-wellbeing-check-1.onrender.com/predict";
 
 // =============================================
 // 3D FLOATING PARTICLES (Canvas background)
@@ -159,9 +159,9 @@ function drawMiniChart(canvasId, data, color, gradColor) {
 
 // Draw initial charts with sample data
 function initCharts() {
-  drawMiniChart('chart-stress', [4, 6, 5, 7, 6, 8, 7, 6],  '#fb923c', 'rgba(251,146,60,0.15)');
-  drawMiniChart('chart-sleep',  [6, 7, 5, 8, 7, 7, 6, 7],  '#818cf8', 'rgba(129,140,248,0.15)');
-  drawMiniChart('chart-usage',  [5, 4, 6, 5, 7, 4, 5, 5],  '#38bdf8', 'rgba(56,189,248,0.15)');
+  drawMiniChart('chart-stress', [4, 6, 5, 7, 6, 8, 7, 6], '#fb923c', 'rgba(251,146,60,0.15)');
+  drawMiniChart('chart-sleep', [6, 7, 5, 8, 7, 7, 6, 7], '#818cf8', 'rgba(129,140,248,0.15)');
+  drawMiniChart('chart-usage', [5, 4, 6, 5, 7, 4, 5, 5], '#38bdf8', 'rgba(56,189,248,0.15)');
 }
 
 // Redraw on resize
@@ -198,9 +198,9 @@ document.querySelectorAll('.stat-card').forEach(card => {
 // =============================================
 const sliders = [
   { id: 'avg_daily_usage_hours', out: 'out-usage', stat: 'stat-usage-val', suffix: 'h' },
-  { id: 'study_hours',           out: 'out-study',  stat: null },
+  { id: 'study_hours', out: 'out-study', stat: null },
   { id: 'physical_activity_hours', out: 'out-activity', stat: null },
-  { id: 'sleep_hours_per_night', out: 'out-sleep',  stat: 'stat-sleep-val', suffix: 'h' },
+  { id: 'sleep_hours_per_night', out: 'out-sleep', stat: 'stat-sleep-val', suffix: 'h' },
 ];
 
 sliders.forEach(({ id, out, stat, suffix }) => {
@@ -409,8 +409,8 @@ form.addEventListener('submit', async (event) => {
     // Redraw charts with slight variation to simulate "update"
     const base = score / SCALE_MAX;
     drawMiniChart('chart-stress', randomChartData(8, payload.stress_level === 'Very High' ? 9 : payload.stress_level === 'High' ? 7 : 5), '#fb923c', 'rgba(251,146,60,0.15)');
-    drawMiniChart('chart-sleep',  randomChartData(8, payload.sleep_hours_per_night), '#818cf8', 'rgba(129,140,248,0.15)');
-    drawMiniChart('chart-usage',  randomChartData(8, payload.avg_daily_usage_hours), '#38bdf8', 'rgba(56,189,248,0.15)');
+    drawMiniChart('chart-sleep', randomChartData(8, payload.sleep_hours_per_night), '#818cf8', 'rgba(129,140,248,0.15)');
+    drawMiniChart('chart-usage', randomChartData(8, payload.avg_daily_usage_hours), '#38bdf8', 'rgba(56,189,248,0.15)');
 
   } catch (err) {
     scoreBand.textContent = 'Fill in the form to see your estimated wellbeing score.';
